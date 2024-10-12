@@ -1,0 +1,162 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* Button Container Styles */
+.button-container {
+    display: flex; /* Align buttons horizontally */
+    justify-content: left; /* Center the buttons */
+    margin: 15px; /* Margin around the container */
+}
+
+/* Button Styles */
+.button {
+    display: inline-block; /* Makes the links behave like buttons */
+    padding: 5px 10px; /* Padding inside the buttons */
+    font-size: 16px; /* Font size for the button text */
+    color: white; /* Text color */
+    background-color: #73C7BF; /* Green background */
+    border: none; /* Removes border */
+    border-radius: 9px; /* Rounded corners */
+    text-decoration: none; /* Removes underline */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+    margin: 0 5px; /* Space between buttons */
+}
+
+/* Button Hover Effect */
+.button:hover {
+    background-color: #4b827d; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8; /* Light background color */
+    color: #333; /* Dark text color for readability */
+    line-height: 1.6; /* Improve line spacing */
+    margin: 0; /* Remove default margin */
+    padding: 20px; /* Add padding around the body */
+}
+
+/* Container styles */
+.container {
+    width: 90%; /* Adjust width for better mobile responsiveness */
+    max-width: 1200px; /* Limit the maximum width */
+    margin: 20px auto; /* Center the container */
+    padding: 20px;
+    background-color: #ffffff; /* White background for content */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Header styles */
+header {
+    background-color: #73C7BF; /* Blue header background */
+    color: white; /* White text */
+    padding: 15px 20px;
+    text-align: center; /* Center header text */
+    border-radius: 8px 8px 0 0; /* Rounded corners on top */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Slight shadow under header */
+}
+
+/* Navigation styles */
+nav {
+    margin: 20px 0; /* Margin around navigation */
+    text-align: center; /* Center navigation */
+}
+
+nav a {
+    margin-right: 15px;
+    color: #73C7BF; /* Blue link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+    padding: 10px 15px; /* Add padding for clickable area */
+    border-radius: 5px; /* Rounded links */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+nav a:hover {
+    text-decoration: underline; /* Underline on hover */
+    background-color: #d6f6f3; /* Subtle background on hover */
+    color: #4b827d; /* Darker text color */
+}
+
+/* Button styles */
+button {
+    background-color: #73C7BF; /* Blue button background */
+    color: white; /* White button text */
+    border: none;
+    padding: 10px 20px; /* Increase padding for larger buttons */
+    border-radius: 5px; /* Rounded button corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    font-size: 16px; /* Slightly increase font size */
+}
+
+button:hover {
+    background-color: #3a6460; /* Darker blue on hover */
+}
+
+/* Form styles */
+form {
+    margin: 20px 0; /* Margin around forms */
+}
+
+form input[type="text"],
+form input[type="email"],
+form select,
+form textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Increase padding for better UX */
+    margin: 10px 0; /* Margin around input fields */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Larger font for input fields */
+    transition: border-color 0.3s; /* Smooth transition for border */
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form select:focus,
+form textarea:focus {
+    border-color: #4d837d; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Footer styles */
+footer {
+    text-align: center; /* Center the footer text */
+    margin-top: 20px; /* Margin above footer */
+    padding: 15px 0; /* Increase padding for footer */
+    background-color: #73C7BF; /* Blue footer background */
+    color: white; /* White footer text */
+    border-radius: 0 0 8px 8px; /* Rounded corners at bottom */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Slight shadow above footer */
+    font-size: 14px; /* Smaller font for footer */
+}
+
+/* Additional styles for form containers */
+.form-container {
+    margin-top: 20px; /* Margin above form containers */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Adjust width on smaller screens */
+        padding: 15px; /* Reduce padding on smaller screens */
+    }
+
+    button {
+        padding: 10px 15px; /* Adjust button padding on smaller screens */
+        font-size: 14px; /* Slightly smaller button text */
+    }
+
+    nav a {
+        margin-right: 10px; /* Reduce margin between nav links */
+        padding: 8px 10px; /* Smaller padding for nav links */
+    }
+}

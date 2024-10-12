@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='search.css') }}">
+<title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+
+    {% if students %}
+        <ul>
+            {% for student in students %}
+                <li>
+                    {{ student[1] }} (Reg No: {{ student[0] }}) - 
+                    Course: {{ student[2] }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No students found.</p>
+    {% endif %}
+
+    <a href="{{ url_for('home') }}">Go back to Home</a>
+</body>
+</html>

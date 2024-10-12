@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+    <title>Education Management System</title>
+    <script>
+        function showForm(formType) {
+            const forms = document.querySelectorAll('.form-container');
+            forms.forEach(form => form.style.display = 'none');
+            document.getElementById(formType).style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Education Management System</h1>
+    </header>
+    
+    <div class="button-container">
+        <a href="/index2" class="button">Home</a>
+        <a href="/login" class="button">Login</a>
+    </div>
+    
+    <div class="container">
+        <nav>
+            <a href="#" onclick="showForm('registerStudentForm')">Register Student</a>
+            <a href="#" onclick="showForm('coursesForm')">Enroll Course</a>
+            <a href="#" onclick="showForm('attendanceForm')">Attendance</a>
+            <a href="#" onclick="showForm('coCurricularForm')">Co-Curricular</a>
+            <a href="#" onclick="showForm('itEventsForm')">IT Events</a>
+            <a href="#" onclick="showForm('cgpaForm')">Add CGPA</a>
+            <a href="#" onclick="showForm('performanceForm')">Calculate Performance</a> <!-- Updated link -->
+        </nav>
+ <!-- Search Bar -->
+ <form action="{{ url_for('search_student') }}" method="get" class="search-form" style="text-align: right; margin: 20px;">
+    <input type="text" name="query" placeholder="Search by name or reg no" required class="search-input" style="width: 55%; max-width: 250px;" >
+    <button type="submit">Search</button>
+</form>
+
+        <!-- Register Student Form -->
+        <div id="registerStudentForm" class="form-container" style="display:none;">
+            <h2>Register Student</h2>
+            <form action="/register_student" method="post">
+                <div class="form-group">
+                    <label for="reg_no">Registration No:</label>
+                    <input type="text" id="reg_no" name="reg_no" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="course">Course:</label>
+                    <input type="text" id="course" name="course" required>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+
+        <!-- Enroll Course Form -->
+        <div id="coursesForm" class="form-container" style="display:none;">
+            <h2>Enroll Course</h2>
+            <form action="/enroll_course" method="post">
+                <div class="form-group">
+                    <label for="reg_no">Registration No:</label>
+                    <input type="text" id="reg_no" name="reg_no" required>
+                </div>
+                <div class="form-group">
+                    <label for="course_name">Course Name:</label>
+                    <input type="text" id="course_name" name="course_name" required>
+                </div>
+                
+                <button type="submit">Enroll</button>
+            </form>
+        </div>
+
+        <!-- Attendance Form -->
+        <div id="attendanceForm" class="form-container" style="display:none;">
+            <h2>Add Attendance</h2>
+            <form action="/add_attendance" method="post">
+                <div class="form-group">
+                    <label for="reg_no">Registration No:</label>
+                    <input type="text" id="reg_no" name="reg_no" required>
+                </div>
+                <div class="form-group">
+                    <label for="sem_no">Semester No:</label>
+                    <input type="number" id="sem_no" name="sem_no" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <select id="status" name="status" required>
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                    </select>
+                </div>
+                <button type="submit">Submit Attendance</button>
+            </form>
+        </div>
+
+        <!-- Co-Curricular Activities Form -->
+        <div id="coCurricularForm" class="form-container" style="display:none;">
+            <h2>Add Co-Curricular Activity</h2>
+            <form action="/add_activity" method="post">
+                <div class="form-group">
+                    <label for="reg_no">Registration No:</label>
+                    <input type="text" id="reg_no" name="reg_no" required>
+                </div>
+                <div class="form-group">
+                    <label for="activity_name">Activity Name:</label>
+                    <input type="text" id="activity_name" name="activity_name" required>
+                </div>
+                <button type="submit">Add Activity</button>
+            </form>
+        </div>
+
+        <!-- IT Events Form -->
+        <div id="itEventsForm" class="form-container" style="display:none;">
+            <h2>Add IT Event</h2>
+            <form action="/add_it_event" method="post">
+                <div class="form-group">
+                    <label for="reg_no">Registration No:</label>
+                    <input type="text" id="reg_no" name="reg_no" required>
+                </div>
+                <div class="form-group">
+                    <label for="event_name">Event Name:</label>
+                    <input type="text" id="event_name" name="event_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="event_type">Event Type:</label>
+                    <select id="event_type" name="event_type" required>
+                        <option value="Inter-University">Inter-University</option>
+                        <option value="Intra-University">Intra-University</option>
+                    </select>
+                </div>
+                <button type="submit">Add IT Event</button>
+            </form>
+        </div>
+
+        <!-- CGPA Form -->
+        <div id="cgpaForm" class="form-container" style="display:none;">
+            <h2>Add CGPA</h2>
+            <form action="/add_cgpa" method="post">
+                <div class="form-group">
+                    <label for="reg_no">Registration No:</label>
+                    <input type="text" id="reg_no" name="reg_no" required>
+                </div>
+                <div class="form-group">
+                    <label for="cgpa">CGPA:</label>
+                    <input type="text" id="cgpa" name="cgpa" required>
+                </div>
+                <button type="submit">Add CGPA</button>
+            </form>
+        </div>
+
+    
+        <!-- Performance Calculation Form -->
+        <div id="performanceForm" class="form-container" style="display:none;">
+            <h2>Calculate Performance</h2>
+            <form action="/calculate_performance" method="post">
+                <div class="form-group">
+                    <label for="reg_no">Registration No:</label>
+                    <input type="text" id="reg_no" name="reg_no" required>
+                </div>
+                <button type="submit">Calculate Performance</button>
+            </form>
+        </div>
+
+
+    
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+       
+    </div>
+</body>
+</html>

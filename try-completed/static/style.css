@@ -1,0 +1,107 @@
+/* Body and container settings */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #80cbc4;  /* Matches the logo background */
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 0 50px;
+}
+
+/* Left section - for the logo */
+.left-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 400px;  /* Increased size */
+    animation: pulse 3s infinite;
+    transition: all 0.5s ease-in-out;
+}
+
+.logo:hover {
+    transform: scale(1.1);  /* Slightly enlarge the logo on hover */
+}
+
+
+/* Right section - for the text */
+.right-section {
+    flex: 1;
+    text-align: right;
+    color: white;
+    position: relative;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.main-text {
+    font-size: 4rem;
+    margin: 0;
+    transform: translateX(100%);
+    animation: slideInRight 1.5s forwards;
+}
+
+.subtext {
+    font-size: 1.5rem;
+    color: #e0f7fa;
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+}
+
+/* Keyframes for animations */
+@keyframes slideInRight {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Scroll indicator styles - Updated for right direction */
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    right: 50px; /* Positioned near the right */
+    color: white;
+    text-align: center;
+    cursor: pointer;  /* Make it clickable */
+    animation: fadeInRight 2s infinite alternate;  /* Right scroll indicator animation */
+}
+
+.scroll-indicator .arrow {
+    width: 30px;
+    height: 30px;
+    border-top: 3px solid white;
+    border-right: 3px solid white;
+    transform: rotate(45deg);  /* Arrow pointing to the right */
+    margin-top: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Fade in and move slightly right */
+@keyframes fadeInRight {
+    0% { opacity: 0.6; transform: translateX(0); }
+    100% { opacity: 1; transform: translateX(10px); }  /* Slight right movement */
+}
+
+.scroll-indicator:hover .arrow {
+    transform: rotate(45deg) translateX(10px);  /* Move arrow slightly on hover */
+}
